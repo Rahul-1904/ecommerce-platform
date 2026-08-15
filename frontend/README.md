@@ -3,6 +3,11 @@
 A React admin panel for managing the e-commerce catalog and orders — consumes
 the [backend API](../backend) over HTTP. Built with React 19 and Vite.
 
+<p>
+  <img src="../docs/screenshots/login.png" alt="Admin login page" width="32%">
+  <img src="../docs/screenshots/products.png" alt="Products page" width="64%">
+</p>
+
 ## Features
 
 - Login gated to `ADMIN`-role accounts, JWT stored in `localStorage`

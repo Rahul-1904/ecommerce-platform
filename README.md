@@ -3,6 +3,11 @@
 A full-stack e-commerce application: a Spring Boot REST API backend and a
 React admin panel for managing it.
 
+<p>
+  <img src="docs/screenshots/products.png" alt="Admin panel — Products page" width="49%">
+  <img src="docs/screenshots/categories.png" alt="Admin panel — Categories page" width="49%">
+</p>
+
 | | |
 |---|---|
 | **[`/backend`](backend)** | Spring Boot 3.3.4 · Java 17 · PostgreSQL · JWT auth |
