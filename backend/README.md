@@ -67,6 +67,16 @@ The API is served at `http://localhost:8080`. Schema is created/updated
 automatically on startup via `spring.jpa.hibernate.ddl-auto=update` — no
 manual migrations needed.
 
+## Testing
+
+Service-layer unit tests (JUnit 5 + Mockito) cover the trickiest business
+logic — stock checks on cart/order operations, ownership checks on orders,
+and that registration always assigns `CUSTOMER` regardless of input:
+
+```bash
+mvn test
+```
+
 ## API overview
 
 All endpoints are under `/api`. Public endpoints need no token; everything
@@ -109,6 +119,6 @@ src/main/java/com/ecommerce/backend/
 
 - No endpoint lists orders across *all* customers — an admin can only act on
   a specific order by ID.
-- No automated tests yet.
+- Test coverage is service-layer only — no controller/integration tests yet.
 - No CORS configuration — a frontend hosted on a different origin in
   production will need one added.

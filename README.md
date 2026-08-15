@@ -55,6 +55,6 @@ detail:
 ## Known limitations
 
 See the backend and frontend READMEs for the full list — the headline ones:
-no automated tests yet, no endpoint to list orders across all customers
-(admin can only act on a specific order by ID), and no production CORS
-policy (the dev setup only avoids it via Vite's proxy).
+no endpoint to list orders across all customers (admin can only act on a
+specific order by ID), test coverage is backend service-layer only, and no
+production CORS policy (the dev setup only avoids it via Vite's proxy).
