@@ -10,7 +10,7 @@ React admin panel for managing it.
 
 | | |
 |---|---|
-| **[`/backend`](backend)** | Spring Boot 3.3.4 · Java 17 · PostgreSQL · JWT auth |
+| **[`/backend`](backend)** | Spring Boot 3.3.4 · Java 17 · PostgreSQL · JWT auth · Swagger UI |
 | **[`/frontend`](frontend)** | React 19 · Vite · admin panel for products/categories/orders |
 
 ## What it does

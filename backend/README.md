@@ -17,6 +17,7 @@ manage products, categories, and orders.
 | Persistence | Spring Data JPA + Hibernate |
 | Database | PostgreSQL |
 | Auth | Spring Security + JWT ([jjwt](https://github.com/jwtk/jjwt)) |
+| API docs | [springdoc-openapi](https://springdoc.org/) (Swagger UI) |
 | Build | Maven |
 
 ## Features
@@ -81,6 +82,11 @@ mvn test
 
 All endpoints are under `/api`. Public endpoints need no token; everything
 else requires `Authorization: Bearer <token>` from `/api/auth/login`.
+
+Interactive docs are served at
+**[`/swagger-ui/index.html`](http://localhost:8080/swagger-ui/index.html)**
+once the app is running — click **Authorize** and paste in a JWT from
+`/api/auth/login` to try protected endpoints directly from the browser.
 
 | Endpoint | Method | Access |
 |---|---|---|
