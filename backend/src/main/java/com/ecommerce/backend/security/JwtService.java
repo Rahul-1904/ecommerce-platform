@@ -21,7 +21,10 @@ public class JwtService {
             @Value("${jwt.secret}") String secret,
             @Value("${jwt.expiration-ms}") long expirationMs
     ) {
-        this.signingKey = Keys.hmacShaKeyFor(java.util.Base64.getDecoder().decode(secret));
+        // .trim() guards against a trailing newline/whitespace sneaking into the
+        // secret via a hosting platform's env var UI — Java's strict Base64
+        // decoder rejects any whitespace, unlike more lenient decoders.
+        this.signingKey = Keys.hmacShaKeyFor(java.util.Base64.getDecoder().decode(secret.trim()));
         this.expirationMs = expirationMs;
     }
 
