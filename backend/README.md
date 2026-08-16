@@ -53,6 +53,8 @@ variables, falling back to local-dev defaults if unset (see
 | `DB_PASSWORD` | `postgres` | Database password |
 | `JWT_SECRET` | *(dev-only placeholder)* | HMAC signing key for JWTs — **set a real one outside local dev** |
 | `JWT_EXPIRATION_MS` | `86400000` (24h) | Token lifetime |
+| `PORT` | `8080` | What most PaaS hosts inject to tell the app which port to bind |
+| `CORS_ALLOWED_ORIGINS` | `http://localhost:5173` | Comma-separated origins allowed to call the API cross-origin — set to the deployed frontend's URL in production |
 
 For a persistent local override, add an `application-local.properties` file
 (already git-ignored) instead of exporting environment variables each time.
@@ -126,5 +128,3 @@ src/main/java/com/ecommerce/backend/
 - No endpoint lists orders across *all* customers — an admin can only act on
   a specific order by ID.
 - Test coverage is service-layer only — no controller/integration tests yet.
-- No CORS configuration — a frontend hosted on a different origin in
-  production will need one added.
