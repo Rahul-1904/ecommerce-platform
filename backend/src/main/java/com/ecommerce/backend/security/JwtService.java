@@ -21,10 +21,12 @@ public class JwtService {
             @Value("${jwt.secret}") String secret,
             @Value("${jwt.expiration-ms}") long expirationMs
     ) {
-        // .trim() guards against a trailing newline/whitespace sneaking into the
-        // secret via a hosting platform's env var UI — Java's strict Base64
-        // decoder rejects any whitespace, unlike more lenient decoders.
-        this.signingKey = Keys.hmacShaKeyFor(java.util.Base64.getDecoder().decode(secret.trim()));
+        // Strip ALL whitespace, not just leading/trailing — a hosting platform's
+        // env var UI can embed a stray newline mid-string (e.g. if the value was
+        // copied from somewhere that visually wraps long text). A valid Base64
+        // string never legitimately contains whitespace, so this is always safe.
+        String cleaned = secret.replaceAll("\\s", "");
+        this.signingKey = Keys.hmacShaKeyFor(java.util.Base64.getDecoder().decode(cleaned));
         this.expirationMs = expirationMs;
     }
 
